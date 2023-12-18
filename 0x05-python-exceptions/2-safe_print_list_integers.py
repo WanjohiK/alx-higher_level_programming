@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-
 def safe_print_list_integers(my_list=[], x=0):
-    p_elems = 0
-    for i in range(p_elems, x):
+    ints = 0
+    for i in range(x):
         try:
             print("{:d}".format(my_list[i]), end="")
-            p_elems += 1
-        except(TypeError, ValueError):
-            pass
+            ints += 1
+        except ValueError:
+            ints += 0
+        except TypeError:
+            ints += 0
     print("")
-    return p_elems
+    return (ints)
