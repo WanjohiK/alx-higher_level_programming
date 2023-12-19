@@ -1,18 +1,22 @@
 #!/usr/bin/python3
-class Square:
-    """ A class that defines a square
+""" Square module """
 
-    Attributes:
-        size (obj,'int'): size of the square
+
+class Square:
+
+    """Define a Square class
+
+     Attributes:
+        (size,'int'): size of square
     """
 
     def __init__(self, size=0):
-        """ Initializes square class
+        """Initialize square class
 
         Args:
-            size (obj:'int') size of the square
+        (obj:'int') size of square
         """
         self.__size = size
-        """ Set private attribute of square size to var size
-
+        """
+        Set size as a private attribute of square to var size
         """

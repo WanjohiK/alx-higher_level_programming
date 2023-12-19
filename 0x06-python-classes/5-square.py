@@ -1,58 +1,48 @@
 #!/usr/bin/python3
+""" Square module """
+
+
 class Square:
-    """ A class that defines a square
 
-    Attributes:
-        size (obj: 'int'): size of the square
-        area (obj: 'int'): area of the square
-    """
+    """Define a Square class """
 
-    def __init__(self, size=0):
-        """ Initializes square class
+    def __init__(self, size=0) -> None:
+        """
+        Intializes the attributes
 
         Args:
-            size (obj:'int'): for size attribute
+            size: size of square
         """
-        self.__size = size
-        """ Set private attribute of square size to var size
-
-        """
+        self.size = size
 
     @property
     def size(self):
-        """ Defines size of square object
-
-        """
+        """ Gets the attribute to be used in square class """
         return self.__size
-
-    def area(self):
-        """ Defines area of square object
-
-        """
-        return self.__size ** 2
-
-    def my_print(self):
-        """ Prints a square of hashes
-
-        """
-        if self.__size is 0:
-            print()
-        else:
-            for i in range(self.__size):
-                print('#' * self.__size)
 
     @size.setter
     def size(self, value):
-        """ Defines size of square object to change to value
-
-        Args:
-            size (obj:'int') size of the square
-        """
         if type(value) is not int:
             raise TypeError("size must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        """ Only positive integers allowed for attribute size
+        else:
+            self.__size = value
 
-        """
-        self.__size = value
+    def area(self):
+        """ Calculate  area of a square """
+        return self.__size ** 2
+
+    def my_print(self):
+        """ Prints in stdout the square with the character # """
+        if self.__size == 0:
+            print()
+        else:
+            number = 0
+            while number < self.__size:
+                num = 0
+                while num < self.__size:
+                    print("{}".format("#"), end='')
+                    num += 1
+                print()
+                number += 1

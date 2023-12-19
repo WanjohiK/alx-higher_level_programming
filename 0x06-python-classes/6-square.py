@@ -1,72 +1,75 @@
 #!/usr/bin/python3
+""" Square module """
+
+
 class Square:
-    """ A class that defines a square
 
-    Attributes:
-        size (obj: 'int'): size of the square
-        area (obj: 'int'): area of the square
-    """
+    """ Define a square class """
 
-    def __init__(self, size=0, position=(0, 0)):
+    def __init__(self, size=0, position=(0, 0)) -> None:
+        """
+        Intializes the attributes
+
+        Args:
+            size: size of square
+            position:  position of square
+        """
         self.size = size
         self.position = position
-        """ Set private attribute of square size to var size
-            Set private attribute of position to var position
-        """
-    @property
-    def position(self):
-        """ Defines position of square object
-        """
-        return self.__position
-
-    @position.setter
-    def position(self, value):
-        """ Sets position of value if its a tupe of 2 pos ints
-
-        """
-        if type(value) is not tuple or len(value) != 2 or\
-           type(value[0]) is not int or type(value[1]) is not int or\
-           value[0] < 0 or value[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
 
     @property
     def size(self):
-        """ Defines size of square object
-        """
+        """ Gets the private attribute to be used in square class """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """ Defines size of square object to change to value
-
-        Args:
-            size (obj:'int') size of the square
-        """
         if type(value) is not int:
             raise TypeError("size must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        """ Only positive integers allowed for attribute size
+        else:
+            self.__size = value
 
-        """
-        self.__size = value
+    @property
+    def position(self):
+        """ Gets the private attribute to be used in square class """
+        return self.__position
+
+    @position.setter
+    def position(self, value):
+        if type(value) is not tuple or len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif type(value[0]) is not int or value[0] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif type(value[1]) is not int or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__position = value
 
     def area(self):
-        """ Defines area of square object
-
-        """
+        """ Calculate area of a square """
         return self.__size ** 2
 
     def my_print(self):
-        """ Prints a square of hashes
+        """ Prints in stdout the square with the character # """
+        if self.__size == 0:
+            print()
+        else:
+            number = 0
+            pos1, pos2 = self.__position
+            for new_line in range(pos2):
+                print()
+            while number < self.__size:
 
-        """
-        if self.size is 0:
-            print()
-            return
-        for i in range(self.position[1]):
-            print()
-        for i in range(self.size):
-            print((" " * self.position[0]) + ('#' * self.size))
-        return
+                j = 0
+                while j < pos1:
+                    print(" ", end='')
+                    j += 1
+
+                num = 0
+                while num < self.__size:
+                    print("{}".format("#"), end='')
+                    num += 1
+                print()
+                number += 1
