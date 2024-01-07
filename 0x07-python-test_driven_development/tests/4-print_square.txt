@@ -1,0 +1,127 @@
+==========================================
+Tests for the 4-print_square module
+==========================================
+
+This module has only one function which is the ``print_square()``
+function which accepts an integer or float and return the sum in integer.
+Raise an ``exception`` if the argument is not a string.
+
+Importing the ``print_square()`` function
+=========================================
+        >>> print_square = __import__('4-print_square').print_square
+
+checking for module docstring
+::
+        >>> mod_string = __import__("4-print_square").__doc__
+        >>> len(mod_string) > 5
+        True
+
+checking for function docstring
+::
+        >>> func_docs = print_square.__doc__
+        >>> len(func_docs) > 5
+        True
+
+checking if size is an integer
+::
+	>>> print_square("Hello")
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+	>>> print((1,1))
+	Traceback (most recent call last):
+        	...
+	TypeError: size must be an integer
+
+checking if size is a positive integer
+::
+	>>> print_square(-1)
+	Traceback (most recent call last):
+        	...
+	ValueError: size must be >= 0
+
+checking if function is correct
+::
+	>>> print_square(10)
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+
+
+	>>> print_square(4)
+	####
+	####
+	####
+	####
+
+checking if a positive size is passed as a parameter
+::
+        >>> print_square(1)
+        #
+        >>> print_square(3)
+        ###
+        ###
+        ###
+
+checking when size passed is zero
+::
+        >>> print_square(0)
+
+checking when size passed is negative:
+::
+        >>> print_square(-1)
+        Traceback (most recent call last):
+        ...
+        ValueError: size must be >= 0
+
+checking when other data types are passed
+::
+        >>> print_square(9.8)
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+        >>> print_square(-9.8)
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+        >>> print_square([9, 8])
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+        >>> print_square({9})
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+        >>> print_square(None)
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+        >>> print_square(True)
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
+checking when more than required argument is provided
+::
+        >>> print_square(9, 8)
+        Traceback (most recent call last):
+        TypeError: print_square() takes 1 positional argument but 2 were given
+
+check when no argument is provided
+::
+        >>> print_square()
+        Traceback (most recent call last):
+        TypeError: print_square() missing 1 required positional argument: 'size'
+
+::
+
+END.
+===
