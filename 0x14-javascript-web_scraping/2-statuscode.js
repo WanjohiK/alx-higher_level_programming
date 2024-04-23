@@ -1,0 +1,12 @@
+#!/usr/bin/node
+/* script that display the status code of a GET request. */
+
+/* import request module */
+const request = require('request');
+const url = process.argv[2];
+
+/* make HTTP request */
+request(url, (err, response) => {
+  if (err) console.log(err);
+  else console.log('code:', response.statusCode);
+});
